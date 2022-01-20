@@ -1,5 +1,5 @@
 # i2DM_feynrules
-Feynrules model for inelastic Dirac Dark Matter model
+Feynrules model for inelastic Dirac Dark Matter
 
 Written by A. Filimonova and S. Junius
 
