@@ -11,14 +11,17 @@ M$ModelName = "i2DM";
 M$Information = { Authors->{"A. Filimonova","S. Junius"},
                   Date->"20.01.2022", 
                   Emails->{"a.filimonova@nikhef.nl","sam.junius@vub.be"},
-                  References->{""},
+                  References->{"A. Filimonova, S. Junius, L. Lopez-Honorez and S. Westhoff, \"Inelastic Dirac Dark Matter,\", [arXiv:2201.xxxx [hep-ph]]"},
                   Version->"1.0"
 		};
 
 
 (*
-NOTE: 
-if we take the effect of Z-Zd mixing into account fully consistently, then mZ0 (the Z mass 
+NOTE:
+This model is bases on the Hidden Abelian Higgs Model provided by C. Duhr 
+(see https://feynrules.irmp.ucl.ac.be/wiki/HiddenAbelianHiggsModel)
+
+If we take the effect of Z-Zd mixing into account fully consistently, then mZ0 (the Z mass 
 before kinetic mixing with the U(1)X gauge boson) does not have to equal mZ (the mass of 
 the mass eigenstate that is dominantly Z). 
 
