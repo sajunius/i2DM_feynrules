@@ -1,0 +1,24 @@
+i2DM
+ Particles
+ Full  name  |A          |A+         | number |2*spin| mass          |width          |color|aux|>LaTex(A)<|>LaTeX(A+)   <|
+Electron-neut|ve         |ve~        |12      |1     |0              |0              |1    |0  |ve        |ve~           |
+Mu-neutrino  |vm         |vm~        |14      |1     |0              |0              |1    |0  |vm        |vm~           |
+Tau-neutrino |vt         |vt~        |16      |1     |0              |0              |1    |0  |vt        |vt~           |
+Electron     |e-         |e+         |11      |1     |ME             |0              |1    |-3 |e-        |e+            |
+Muon         |m-         |m+         |13      |1     |MM             |0              |1    |-3 |m-        |m+            |
+Tau          |tt-        |tt+        |15      |1     |MTA            |0              |1    |-3 |tt-       |tt+           |
+u-quark      |u          |u~         |2       |1     |MU             |0              |3    |2  |u         |u~            |
+c-quark      |c          |c~         |4       |1     |MC             |0              |3    |2  |c         |c~            |
+t-quark      |t          |t~         |6       |1     |MT             |!WT            |3    |2  |t         |t~            |
+d-quark      |d          |d~         |1       |1     |MD             |0              |3    |-1 |d         |d~            |
+s-quark      |s          |s~         |3       |1     |MS             |0              |3    |-1 |s         |s~            |
+b-quark      |b          |b~         |5       |1     |MB             |0              |3    |-1 |b         |b~            |
+Lightest dark|~Chi1      |~Chi1~     |52      |1     |MD1            |!WD1           |1    |0  |~Chi1     |~Chi1~        |
+Heavy dark fe|~Chi2      |~Chi2~     |58      |1     |MD2            |!WD2           |1    |0  |~Chi2     |~Chi2~        |
+Photon       |A          |A          |22      |2     |0              |0              |1    |G  |A         |A             |
+Z boson      |Z          |Z          |23      |2     |MZ             |!WZ            |1    |0  |Z         |Z             |
+Dark Photon  |Ap         |Ap         |1023    |2     |MAp            |!WAp           |1    |0  |Ap        |Ap            |
+W boson      |W+         |W-         |24      |2     |MW             |!WW            |1    |3  |W+        |W-            |
+Gluons       |G          |G          |21      |2     |0              |0              |8    |G  |G         |G             |
+Higgs boson  |h          |h          |25      |0     |MH             |!WH            |1    |0  |h         |h             |
+Dark Higgs bo|hs         |hs         |35      |0     |MHS            |!WHS           |1    |0  |hs        |hs            |
