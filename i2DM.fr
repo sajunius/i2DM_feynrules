@@ -11,17 +11,17 @@ M$ModelName = "i2DM";
 M$Information = { Authors->{"A. Filimonova","S. Junius"},
                   Date->"20.01.2022", 
                   Emails->{"a.filimonova@nikhef.nl","sam.junius@vub.be"},
-                  References->{"A. Filimonova, S. Junius, L. Lopez-Honorez and S. Westhoff, \"Inelastic Dirac Dark Matter,\", [arXiv:2201.xxxx [hep-ph]]"},
+                  References->{""},
                   Version->"1.0"
 		};
 
 
 (*
-NOTE:
+NOTE: 
 This model is bases on the Hidden Abelian Higgs Model provided by C. Duhr 
 (see https://feynrules.irmp.ucl.ac.be/wiki/HiddenAbelianHiggsModel)
 
-If we take the effect of Z-Zd mixing into account fully consistently, then mZ0 (the Z mass 
+if we take the effect of Z-Zd mixing into account fully consistently, then mZ0 (the Z mass 
 before kinetic mixing with the U(1)X gauge boson) does not have to equal mZ (the mass of 
 the mass eigenstate that is dominantly Z). 
 
@@ -258,25 +258,25 @@ M$Parameters = {
 
    SignAux == {
 	ParameterType -> Internal,
-	Value -> (MZ-MZp)/Sqrt[(MZ-MZp)^2],
-	Description -> "Sign depending on MZ-MZp hiearchy"},
+	Value -> (MZ-MAp)/Sqrt[(MZ-MAp)^2],
+	Description -> "Sign depending on MZ-MAp hiearchy"},
        
   MZ0 == {
        ParameterType -> Internal,
-       Value -> Sqrt[(MZp^2 + MZ^2 + SignAux*Sqrt[(MZp^2 - MZ^2)^2 - 4 MZp^2 MZ^2 sw^2 \[Eta]^2])/(2 + 2 sw^2 \[Eta]^2)],
+       Value -> Sqrt[(MAp^2 + MZ^2 + SignAux*Sqrt[(MAp^2 - MZ^2)^2 - 4 MAp^2 MZ^2 sw^2 \[Eta]^2])/(2 + 2 sw^2 \[Eta]^2)],
        Description -> "Z mass BEFORE mixing"},    
 
   DZaux == {
 	ParameterType ->Internal,
-	Value -> SignAux*Sqrt[MZp^4 + MZ^4 - 2 MZp^2 MZ^2 (1 + 2 sw^2 \[Eta]^2)],
+	Value -> SignAux*Sqrt[MAp^4 + MZ^4 - 2 MAp^2 MZ^2 (1 + 2 sw^2 \[Eta]^2)],
 	Description -> "Auxilary variable for DZ"},
 
 
   \[CapitalDelta]Z =={
        ParameterType -> Internal,
-       Value -> 1/(2 MZp^2 MZ^2) (MZp^4 + MZ^4 - MZ^2 DZaux + MZp^2 (-2 MZ^2 sw^2 \[Eta]^2 - DZaux)),
+       Value -> 1/(2 MAp^2 MZ^2) (MAp^4 + MZ^4 - MZ^2 DZaux + MAp^2 (-2 MZ^2 sw^2 \[Eta]^2 - DZaux)),
        ParameterName -> DZ,
-       Description -> "Ratio of scales"},
+       Description -> "Ratio of Z0 and X masses"},
 
   MX =={
        ParameterType -> Internal,
@@ -394,12 +394,6 @@ MW == {
         Value ->-Sqrt[2] ttheta Abs[MD1 - MD2]/(vD (1+ttheta^2)),
         Description -> "Dark fermion mixing in the mass basis"},
 
-  \[CapitalDelta]M == {
-       ParameterType -> Internal,
-       ParameterName -> DM,
-       Value -> Sqrt[(MDD-MD0)^2+2 vD^2 \[Lambda]D^2],
-       Description -> "Physical mass splitting"},
-
   \[CapitalDelta]Mgauge == {
        ParameterType -> Internal,
        ParameterName -> DMgauge,
@@ -415,6 +409,12 @@ MW == {
        ParameterType -> Internal,
        Value -> (MD1+MD2+\[CapitalDelta]Mgauge)/2,
        Description -> "Charged dark fermion mass BEFORE fermion mixing"},
+
+  \[CapitalDelta]M == {
+       ParameterType -> Internal,
+       ParameterName -> DM,
+       Value -> Sqrt[(MDD-MD0)^2+2 vD^2 \[Lambda]D^2],
+       Description -> "Physical mass splitting"},
 
 
 
@@ -604,7 +604,7 @@ M$ClassesDescription = {
 	    AntiParticleName -> "~Chi1~",
             PropagatorType  -> Straight,
             PropagatorArrow -> True,
-            FullName -> "~Chi1" },
+            FullName -> "Lightest dark fermion" },
 
   F[6] == { ClassName -> Chi2,
             SelfConjugate -> False,
@@ -616,7 +616,7 @@ M$ClassesDescription = {
 	    AntiParticleName -> "~Chi2~",
             PropagatorType  -> Straight,
             PropagatorArrow -> True,
-            FullName -> "~Chi2" },
+            FullName -> "Heavy dark fermion" },
 
 (****** Unphysical Fields before mixing ******)
 
@@ -624,14 +624,16 @@ M$ClassesDescription = {
         ClassName   -> \[Psi]0,
         Unphysical -> True,
         SelfConjugate   -> True,
-        Definitions -> {\[Psi]0[sp_] ->  ctheta Chi1[sp] + stheta Chi2[sp]}},
+        Definitions -> {\[Psi]0[sp_] ->  ctheta Chi1[sp] + stheta Chi2[sp]},
+        FullName -> "Neutral dark fermion before mixing"},
 
   F[17] == {
         ClassName   -> \[Psi]D,
         Unphysical -> True,
         SelfConjugate   -> False,
         QuantumNumbers -> {Qd -> 1},
-        Definitions -> {\[Psi]D[sp_] ->  {-stheta Chi1[sp] + ctheta Chi2[sp]} }},
+        Definitions -> {\[Psi]D[sp_] ->  {-stheta Chi1[sp] + ctheta Chi2[sp]} },
+        FullName -> "Charged dark fermion before mixing"},
 
 
 
@@ -674,37 +676,19 @@ M$ClassesDescription = {
 	PropagatorType -> Sine,
 	PropagatorArrow -> None,
         PDG -> 23,
-        FullName -> "Z" },
+        FullName -> "Z boson" },
 
   V[22] == {
-        ClassName -> Zp,
+        ClassName -> Ap,
 	SelfConjugate -> True, 
 	Indices -> {},
-	Mass -> {MZp, 150},
-        Width -> {WZp, 0.0008252},
-	PropagatorLabel -> "Zp",
+	Mass -> {MAp, 150},
+        Width -> {WAp, 0.0008252},
+	PropagatorLabel -> "Ap",
 	PropagatorType -> Sine,
 	PropagatorArrow -> None,
         PDG -> 1023,
-        FullName -> "Zp" },
-
-  V[210] == {
-        ClassName -> Bp,
-	SelfConjugate -> True,
-        Unphysical -> True, 
-	Indices -> {},
-	Mass -> 0,
-        Width -> 0,
-        Definitions -> {Bp[mu_] :> cw A[mu] -sw ca Z[mu] + sw sa Zp[mu]}},
-
-  V[220] == {
-        ClassName -> Xp,
-	SelfConjugate -> True,
-        Unphysical -> True, 
-	Indices -> {},
-	Mass -> 0,
-        Width -> 0,
-        Definitions -> {Xp[mu_] :> sa Z[mu] + ca Zp[mu]}},
+        FullName -> "Dark Photon" },
 
 
 	(* Gauge bosons: Q = -1 *)
@@ -721,7 +705,7 @@ M$ClassesDescription = {
 	ParticleName ->"W+",
 	AntiParticleName ->"W-",
         PDG -> 24,
-        FullName -> "W" },
+        FullName -> "W boson" },
 
 V[4] == {
         ClassName -> G,
@@ -733,18 +717,39 @@ V[4] == {
 	PropagatorType -> C,
 	PropagatorArrow -> None,
         PDG -> 21,
-        FullName -> "G" },
+        FullName -> "Gluons" },
 
 V[5] == {
         ClassName -> Wi,
         Unphysical -> True,
         Definitions -> {Wi[mu_, 1] -> (W[mu] + Wbar[mu])/Sqrt[2],
                         Wi[mu_, 2] -> (Wbar[mu] - W[mu])/Sqrt[2]/I,
-                        Wi[mu_, 3] -> -cw sa Zp[mu] + cw ca  Z[mu] + sw A[mu]},
+                        Wi[mu_, 3] -> -cw sa Ap[mu] + cw ca  Z[mu] + sw A[mu]},
         SelfConjugate -> True,
         Indices -> {Index[SU2W]},
         FlavorIndex -> SU2W,
         Mass -> 0},
+
+        (* Unphysical gauge bosons *)
+ V[210] == {
+        ClassName -> Bp,
+	SelfConjugate -> True,
+        Unphysical -> True, 
+	Indices -> {},
+	Mass -> 0,
+        Width -> 0,
+        Definitions -> {Bp[mu_] :> cw A[mu] -sw ca Z[mu] + sw sa Ap[mu]},
+        FullName -> "Hypercharge gauge boson before mass mixing"},
+
+  V[220] == {
+        ClassName -> Xp,
+	SelfConjugate -> True,
+        Unphysical -> True, 
+	Indices -> {},
+	Mass -> 0,
+        Width -> 0,
+        Definitions -> {Xp[mu_] :> sa Z[mu] + ca Ap[mu]},
+        FullName -> "Dark gauge boson before mass mixing"},
 
 V[6] == {
         ClassName -> B,
@@ -752,7 +757,8 @@ V[6] == {
         Definitions -> {B[mu_] -> Bp[mu] + \[Eta] Xp[mu]},
 	Indices -> {},
 	Mass -> 0,
-        Unphysical -> True},
+        Unphysical -> True,
+        FullName -> "Hypercharge gauge boson"},
 
 V[61] == {
         ClassName -> X,
@@ -760,7 +766,8 @@ V[61] == {
         Definitions -> {X[mu_] -> \[Eta]/\[Chi] Xp[mu]},
 	Indices -> {},
 	Mass -> 0,
-        Unphysical -> True},
+        Unphysical -> True,
+        FullName -> "Dark gauge boson"},
 
 
 (************ Scalar Fields **********)
@@ -774,7 +781,7 @@ V[61] == {
 	PropagatorType -> D,
 	PropagatorArrow -> None,
         PDG -> 25,
-        FullName -> "h" },
+        FullName -> "Higgs boson" },
 
   S[12] == {
         ClassName -> hs,
@@ -785,7 +792,7 @@ V[61] == {
 	PropagatorType -> D,
 	PropagatorArrow -> None,
         PDG -> 35,
-        FullName -> "hs" },
+        FullName -> "Dark Higgs boson" },
 
  
 	S[110] == {
