@@ -6,3 +6,5 @@ Written by A. Filimonova and S. Junius
 Based on Hidden Abelian Higgs Model by C. Duhr (see https://feynrules.irmp.ucl.ac.be/wiki/HiddenAbelianHiggsModel)
 
 We provide the original .fr file, as well as the UFO and Calchep model
+
+When using this model, please cite arXiv:2201.08409
