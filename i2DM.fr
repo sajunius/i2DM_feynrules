@@ -11,7 +11,7 @@ M$ModelName = "i2DM";
 M$Information = { Authors->{"A. Filimonova","S. Junius"},
                   Date->"20.01.2022", 
                   Emails->{"a.filimonova@nikhef.nl","sam.junius@vub.be"},
-                  References->{""},
+                  References->{"arXiv:2201.08409"},
                   Version->"1.0"
 		};
 
