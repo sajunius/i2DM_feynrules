@@ -1,6 +1,6 @@
 # This file was automatically created by FeynRules 2.3.34
 # Mathematica version: 12.1.1 for Linux x86 (64-bit) (June 19, 2020)
-# Date: Thu 20 Jan 2022 17:21:51
+# Date: Thu 7 Apr 2022 09:18:17
 
 
 from object_library import all_couplings, Coupling
@@ -35,11 +35,11 @@ GC_6 = Coupling(name = 'GC_6',
 
 GC_7 = Coupling(name = 'GC_7',
                 value = '(ca*ctheta**2*eta*complex(0,1)*gD)/chi',
-                order = {'QED':1})
+                order = {'NP':1})
 
 GC_8 = Coupling(name = 'GC_8',
                 value = '(2*ca**2*eta**2*complex(0,1)*gD**2)/chi**2',
-                order = {'QED':2})
+                order = {'NP':2})
 
 GC_9 = Coupling(name = 'GC_9',
                 value = 'ca*cw*complex(0,1)*gw',
@@ -63,11 +63,11 @@ GC_13 = Coupling(name = 'GC_13',
 
 GC_14 = Coupling(name = 'GC_14',
                  value = '(ctheta**2*eta*complex(0,1)*gD*sa)/chi',
-                 order = {'QED':1})
+                 order = {'NP':1})
 
 GC_15 = Coupling(name = 'GC_15',
                  value = '(2*ca*eta**2*complex(0,1)*gD**2*sa)/chi**2',
-                 order = {'QED':2})
+                 order = {'NP':2})
 
 GC_16 = Coupling(name = 'GC_16',
                  value = '-(cw*complex(0,1)*gw*sa)',
@@ -79,7 +79,7 @@ GC_17 = Coupling(name = 'GC_17',
 
 GC_18 = Coupling(name = 'GC_18',
                  value = '(2*eta**2*complex(0,1)*gD**2*sa**2)/chi**2',
-                 order = {'QED':2})
+                 order = {'NP':2})
 
 GC_19 = Coupling(name = 'GC_19',
                  value = 'cw**2*complex(0,1)*gw**2*sa**2',
@@ -87,19 +87,19 @@ GC_19 = Coupling(name = 'GC_19',
 
 GC_20 = Coupling(name = 'GC_20',
                  value = '-((ca*ctheta*eta*complex(0,1)*gD*stheta)/chi)',
-                 order = {'QED':1})
+                 order = {'NP':1})
 
 GC_21 = Coupling(name = 'GC_21',
                  value = '-((ctheta*eta*complex(0,1)*gD*sa*stheta)/chi)',
-                 order = {'QED':1})
+                 order = {'NP':1})
 
 GC_22 = Coupling(name = 'GC_22',
                  value = '(ca*eta*complex(0,1)*gD*stheta**2)/chi',
-                 order = {'QED':1})
+                 order = {'NP':1})
 
 GC_23 = Coupling(name = 'GC_23',
                  value = '(eta*complex(0,1)*gD*sa*stheta**2)/chi',
-                 order = {'QED':1})
+                 order = {'NP':1})
 
 GC_24 = Coupling(name = 'GC_24',
                  value = '(ee**2*complex(0,1))/(2.*sw**2)',
@@ -239,19 +239,19 @@ GC_57 = Coupling(name = 'GC_57',
 
 GC_58 = Coupling(name = 'GC_58',
                  value = '(-2*ca**2*eta**2*complex(0,1)*gD**2*xi)/chi**2',
-                 order = {'QED':1})
+                 order = {'NP':1})
 
 GC_59 = Coupling(name = 'GC_59',
                  value = '6*complex(0,1)*rho*xi',
-                 order = {'QED':1})
+                 order = {'NP':-1,'QED':2})
 
 GC_60 = Coupling(name = 'GC_60',
                  value = '(-2*ca*eta**2*complex(0,1)*gD**2*sa*xi)/chi**2',
-                 order = {'QED':1})
+                 order = {'NP':1})
 
 GC_61 = Coupling(name = 'GC_61',
                  value = '(-2*eta**2*complex(0,1)*gD**2*sa**2*xi)/chi**2',
-                 order = {'QED':1})
+                 order = {'NP':1})
 
 GC_62 = Coupling(name = 'GC_62',
                  value = '-((complex(0,1)*yb)/cmath.sqrt(2))',
