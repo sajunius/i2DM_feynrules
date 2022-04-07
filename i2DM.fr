@@ -11,7 +11,7 @@ M$ModelName = "i2DM";
 M$Information = { Authors->{"A. Filimonova","S. Junius"},
                   Date->"20.01.2022", 
                   Emails->{"a.filimonova@nikhef.nl","sam.junius@vub.be"},
-                  References->{"arXiv:2201.08409"},
+                  References->{""},
                   Version->"1.0"
 		};
 
@@ -61,6 +61,14 @@ IndexStyle[Gluon ,a]
 
 IndexStyle[SUW2 ,k]
 
+(******* Interaction Orders *******)
+
+M$InteractionOrderHierarchy = {
+{QCD,1},
+{NP,2},
+{QED,2}
+}
+
 
 (****************  Parameters *************)
 
@@ -73,6 +81,7 @@ M$Parameters = {
         BlockName -> HIDDEN,
         ParameterName -> epsilon,
         Value -> 0.01,
+        InteractionOrder -> {NP, 1},
         Description -> "U(1)D - U(1)Y kinetic mixing parameter"}, 
 
   ttheta == {
@@ -80,6 +89,7 @@ M$Parameters = {
         BlockName -> HIDDEN,
         ParameterName -> ttheta,
         Value -> 10^-5,
+        InteractionOrder -> {NP, 1},
         Description -> "Tan[theta_D], mixing angle of dark fermions"},
         
 	
@@ -87,7 +97,7 @@ M$Parameters = {
         ParameterType -> External,
         BlockName -> HIDDEN,
         ParameterName -> aDM1,
-        InteractionOrder -> {QED, -2},
+        InteractionOrder -> {NP, -2},
         Value -> 10,
         Description -> "Inverse of the U(1)D coupling constant"},
         
@@ -223,14 +233,14 @@ M$Parameters = {
         ParameterType -> Internal,
         Value -> 1/\[Alpha]DM1,
         ParameterName -> aD,
-        InteractionOrder -> {QED, 2},
+        InteractionOrder -> {NP, 2},
         Description -> "U(1)D coupling contant"},
 
    gD == {
         TeX -> Subscript[g, D],
         ParameterType -> Internal,
         Value -> Sqrt[4 Pi \[Alpha]D],
-        InteractionOrder -> {QED, 1},
+        InteractionOrder -> {NP, 1},
         Description -> "U(1)D coupling constant"},
 
 
@@ -324,7 +334,7 @@ MW == {
   vD == {
         ParameterType -> Internal,
         Value -> MX Sqrt[1 - \[Chi]^2] /(gD),
-        InteractionOrder -> {QED, -1},
+        InteractionOrder -> {NP, -1},
         ParameterName -> xi,
         Description -> "Abelian Higgs VEV"},
   
@@ -597,7 +607,7 @@ M$ClassesDescription = {
   F[5] == { ClassName -> Chi1,
             SelfConjugate -> False,
             Mass -> {MD1, 50},
-            Width -> {WD1,1},
+            Width -> {WD1,0},
             PDG -> {52},
             TeX -> Subscript[\[Chi],1],
             ParticleName    -> "~Chi1",
